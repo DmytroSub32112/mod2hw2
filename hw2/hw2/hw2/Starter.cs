@@ -10,10 +10,10 @@ namespace Hw2
     {
         private readonly CartService _cart;
         private readonly Person _person;
-        private OrderMaker _order;
+        private OrderService _order;
         public Starter()
         {
-            _cart = CartService.Instance;
+            _cart = new CartService();
             _person = new Person()
             {
                 FirstName = "Subota",
@@ -31,7 +31,7 @@ namespace Hw2
                 _cart.Add(rnd.Next(21));
             }
 
-            _order = new OrderMaker()
+            _order = new OrderService()
             {
                 Person = _person
             };

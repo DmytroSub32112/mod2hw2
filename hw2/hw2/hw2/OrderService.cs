@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Hw2
 {
-    public class OrderMaker
+    public class OrderService
     {
         private readonly CartService _cart;
         private readonly EmailService _emailService;
         private readonly SMSService _smsService;
         private float _totalPrice;
-        public OrderMaker()
+        public OrderService()
         {
-            _cart = CartService.Instance;
+            _cart = new CartService();
             _emailService = new EmailService();
             _smsService = new SMSService();
             _totalPrice = CalculateTotal();

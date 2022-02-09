@@ -8,7 +8,6 @@ namespace Hw2
 {
     public class CartService
     {
-        private static CartService _instance = new CartService();
         private readonly ConfigService _configService;
         private readonly ProductProvider _productProvider;
         private readonly int _size;
@@ -17,7 +16,7 @@ namespace Hw2
         {
         }
 
-        private CartService()
+        public CartService()
         {
             _configService = new ConfigService();
             _productProvider = new ProductProvider();
@@ -26,7 +25,6 @@ namespace Hw2
         }
 
         public Product[] ItemsInCart { get; private set; }
-        public static CartService Instance => _instance;
 
         public void Add(int id)
         {
